@@ -1,34 +1,27 @@
 import { lazy } from "react";
 import { Row, Col } from "antd";
-import { withTranslation } from "react-i18next";
 import Fade from "react-reveal/Fade";
 
 import * as S from "./styles";
 
 const Button = lazy(() => import("../../common/Button"));
 
-const MiddleBlock = ({ title, content, button, t }) => {
-  const scrollTo = (id) => {
-    const element = document.getElementById(id);
-    element.scrollIntoView({
-      behavior: "smooth",
-    });
-  };
+const MiddleBlock = ({ title, content, button, id }) => {
   return (
     <S.MiddleBlock>
-      <Row type="flex" justify="center" align="middle">
+      <Row type="flex" justify="center" align="middle" id={id}>
         <Fade bottom>
           <S.ContentWrapper>
             <Col lg={24} md={24} sm={24} xs={24}>
-              <h6>{t(title)}</h6>
-              <S.Content>{t(content)}</S.Content>
+              <h2>{title}</h2>
+              <S.Content>{content}</S.Content>
               {button ? (
                 <Button
                   name="submit"
                   type="submit"
-                  onClick={() => scrollTo("mission")}
+                  onClick={() => {window.open("https://apps.apple.com/us/app/yourmind-gym/id1422670577")}}
                 >
-                  {t(button)}
+                  {button}
                 </Button>
               ) : (
                 ""
@@ -41,4 +34,4 @@ const MiddleBlock = ({ title, content, button, t }) => {
   );
 };
 
-export default withTranslation()(MiddleBlock);
+export default MiddleBlock;

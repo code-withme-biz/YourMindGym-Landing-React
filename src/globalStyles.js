@@ -14,7 +14,7 @@ const Styles = createGlobalStyle`
         padding:0;
         border: 0;
         outline: 0;
-        background: #fff;
+        background: #fff1e6;
         overflow-x: hidden;
     }
 
@@ -22,12 +22,18 @@ const Styles = createGlobalStyle`
         color: #000;
     }
 
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
+    h1 {
+        font-family: 'Ubuntu', sans-serif;
+        color: #0a1f44;
+        font-size: 3.4rem;
+        line-height: 3.0625rem;
+      
+        @media only screen and (max-width: 414px) {
+          font-size: 1.625rem;
+        }
+    }
+
+    h2 {
         font-family: 'Ubuntu', sans-serif;
         color: #0a1f44;
         font-size: 2.575rem;
@@ -37,8 +43,26 @@ const Styles = createGlobalStyle`
           font-size: 1.625rem;
         }
     }
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-family: 'Ubuntu', sans-serif;
+        color: #0a1f44;
+        font-size: 1.8rem;
+        line-height: 3.0625rem;
+      
+        @media only screen and (max-width: 414px) {
+          font-size: 1.625rem;
+        }
+    }
 
     p {
+        color: #343D48;
+        font-size: 1.125rem;
+    }
+
+    ul {
         color: #343D48;
         font-size: 1.125rem;
     }
@@ -77,6 +101,10 @@ const Styles = createGlobalStyle`
     .anticon,
     .ant-notification-notice-icon-success {
         color: rgb(255,130,92);
+    }
+
+    #privacy, #terms {
+        white-space: pre-line;
     }
 `;
 

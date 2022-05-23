@@ -57,6 +57,7 @@ export const Burger = styled.div`
 `;
 
 export const NotHidden = styled.div`
+  padding-top: 3rem;
   @media only screen and (max-width: 768px) {
     display: none;
   }
@@ -71,7 +72,7 @@ export const Menu = styled.h5`
 `;
 
 export const CustomNavLinkSmall = styled(NavLink)`
-  font-size: 1rem;
+  font-size: 1.2rem;
   color: #000000;
   transition: color 0.2s ease-in;
   margin: 0.25rem 2rem;

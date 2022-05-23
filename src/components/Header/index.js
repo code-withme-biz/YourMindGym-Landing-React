@@ -1,17 +1,18 @@
 import { useState, Fragment, lazy } from "react";
 import { Row, Col, Drawer } from "antd";
 import { CSSTransition } from "react-transition-group";
-import { withTranslation } from "react-i18next";
-
+import { useHistory, useLocation } from "react-router-dom";
 import * as S from "./styles";
 
 const SvgIcon = lazy(() => import("../../common/SvgIcon"));
-const Button = lazy(() => import("../../common/Button"));
 
-const Header = ({ t }) => {
+const Header = () => {
+  const history = useHistory();
+
   const [isNavVisible] = useState(false);
   const [isSmallScreen] = useState(false);
   const [visible, setVisibility] = useState(false);
+  const location = useLocation();
 
   const showDrawer = () => {
     setVisibility(!visible);
@@ -29,24 +30,24 @@ const Header = ({ t }) => {
       });
       setVisibility(false);
     };
+
+    function redirect(sectionId) {
+      if (location.pathname === '/privacy' || location.pathname === '/terms') {
+        history.push("/home");
+      } else {
+        scrollTo(sectionId);
+      }
+    }
     return (
       <Fragment>
-        <S.CustomNavLinkSmall onClick={() => scrollTo("about")}>
-          <S.Span>{t("About")}</S.Span>
+        <S.CustomNavLinkSmall onClick={() => redirect("middle")}>
+          <S.Span>Middle</S.Span>
         </S.CustomNavLinkSmall>
-        <S.CustomNavLinkSmall onClick={() => scrollTo("mission")}>
-          <S.Span>{t("Mission")}</S.Span>
+        <S.CustomNavLinkSmall onClick={() => redirect("left")}>
+          <S.Span>Left</S.Span>
         </S.CustomNavLinkSmall>
-        <S.CustomNavLinkSmall onClick={() => scrollTo("product")}>
-          <S.Span>{t("Product")}</S.Span>
-        </S.CustomNavLinkSmall>
-        <S.CustomNavLinkSmall
-          style={{ width: "180px" }}
-          onClick={() => scrollTo("contact")}
-        >
-          <S.Span>
-            <Button>{t("Contact")}</Button>
-          </S.Span>
+        <S.CustomNavLinkSmall onClick={() => redirect("right")}>
+          <S.Span>Right</S.Span>
         </S.CustomNavLinkSmall>
       </Fragment>
     );
@@ -55,9 +56,9 @@ const Header = ({ t }) => {
   return (
     <S.Header>
       <S.Container>
-        <Row type="flex" justify="space-between" gutter={20}>
+        <Row type="flex" justify="space-around" gutter={20}>
           <S.LogoContainer to="/" aria-label="homepage">
-            <SvgIcon src="logo.svg" />
+            <SvgIcon src="logo.png" width="60%" height="100%" />
           </S.LogoContainer>
           <S.NotHidden>
             <MenuItem />
@@ -91,4 +92,4 @@ const Header = ({ t }) => {
   );
 };
 
-export default withTranslation()(Header);
+export default Header;

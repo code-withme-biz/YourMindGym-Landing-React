@@ -1,13 +1,10 @@
 {
-  "title": "Landing page template for developers & startups",
-  "text": "Beautifully designed templates using React.js, ant design and styled-components! Save weeks of time and build your landing page in minutes.",
+  "title": "YourMind Gym",
+  "text": "Measure and enhance your focus and attention with this fun and evidence-based App. This App is a portable GYM for your mind and is perfect for beginners and experts in meditation.",
   "button": [
     {
-      "title": "Explore"
-    },
-    {
-      "title": "Learn More",
-      "color": "#fff"
+      "title": "apple.png",
+      "link": "https://apps.apple.com/us/app/yourmind-gym/id1422670577"
     }
   ]
 }

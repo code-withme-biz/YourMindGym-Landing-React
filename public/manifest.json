@@ -1,6 +1,6 @@
 {
-  "short_name": "Landy",
-  "name": "Landy - React Template",
+  "short_name": "YMG",
+  "name": "YourMind Gym app",
   "icons": [
     {
       "src": "img/icons/logo192.png",
@@ -21,5 +21,5 @@
   "start_url": ".",
   "display": "standalone",
   "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "background_color": "#fff1e6"
 }
